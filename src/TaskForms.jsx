@@ -1,9 +1,10 @@
 import { useState } from "react";
+import PropTypes from 'prop-types';
 
 
 
 function TaskForms({createTask}) {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState([]);
 
 const handleSumit=(e)=>{
     e.preventDefault();
@@ -28,4 +29,9 @@ const handleSumit=(e)=>{
   );
 }
 
+
+TaskForms.propTypes = {
+  createTask: PropTypes.func.isRequired,
+  
+}
 export default TaskForms;
