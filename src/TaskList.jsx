@@ -19,9 +19,9 @@ function TaskList({ tasks }) {
 TaskList.propTypes = {
   tasks: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
+      id: PropTypes.number,
+      title: PropTypes.string,
+      description: PropTypes.string,
     })
   ).isRequired,
 };
