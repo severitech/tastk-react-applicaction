@@ -1,12 +1,15 @@
-import { useState, useRef } from "react";
-import PropTypes from 'prop-types';
+import { useState, useRef, useContext } from "react";
 
+import {TaskContext} from '../context/TaskContext'
 
-function TaskForms({ createTask }) {
+function TaskForms() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
   const inputRef = useRef(null);
 
+  const {createTask} = useContext(TaskContext)
+  
   const handleSumit = (e) => {
     e.preventDefault();
     createTask({title,description});
@@ -42,7 +45,5 @@ function TaskForms({ createTask }) {
   );
 }
 
-TaskForms.propTypes = {
-  createTask: PropTypes.func,
-};
+
 export default TaskForms;

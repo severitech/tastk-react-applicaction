@@ -1,8 +1,9 @@
-import PropTypes from 'prop-types';
 
-  
-function TaskCard({task, deleteTask}) {
+import {useContext} from 'react';
+import {TaskContext} from '../context/TaskContext'
 
+function TaskCard({task}) {
+  const {deleteTask}=useContext(TaskContext)
   return (
     <div>
       <h1>{task.title}</h1>
@@ -13,11 +14,5 @@ function TaskCard({task, deleteTask}) {
 }
 
 export default TaskCard;
-TaskCard.propTypes = {
-     task: PropTypes.shape({
-        id: PropTypes.number,
-        title: PropTypes.string,
-        description: PropTypes.string,
-      }),
-    deleteTask: PropTypes.func
-  };
+
+TaskCard.
