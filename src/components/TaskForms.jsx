@@ -1,6 +1,6 @@
 import { useState, useRef, useContext } from "react";
 
-import {TaskContext} from '../context/TaskContext'
+import { TaskContext } from "../context/TaskContext";
 
 function TaskForms() {
   const [title, setTitle] = useState("");
@@ -8,42 +8,47 @@ function TaskForms() {
 
   const inputRef = useRef(null);
 
-  const {createTask} = useContext(TaskContext)
-  
+  const { createTask } = useContext(TaskContext);
+
   const handleSumit = (e) => {
     e.preventDefault();
-    createTask({title,description});
-    setTitle("")
-    setDescription("")
-    inputRef.current.focus(); 
+    createTask({ title, description });
+    setTitle("");
+    setDescription("");
+    inputRef.current.focus();
   };
 
   return (
-    <form onSubmit={handleSumit}>
-      <h1>Escribe tu tarea</h1>
-      <h2>Nombre de Tarea</h2>
-      <input ref={inputRef}
-        type="text"
-        placeholder="Escribe tu tarea"
-        onChange={(e) => {
-          setTitle(e.target.value);
-        }}
-        value={title} autoFocus
-      />
-      <p>Descripcion</p>
-      <textarea
-        type="text"
-        placeholder="Descripcion de tarea"
-        onChange={(e) => {
-          setDescription(e.target.value);
-        }}
-        value={description}
-      />
-      <br />
-      <button>Guardar</button>
-    </form>
+    <div className="max-w-md mx-auto">
+      <form onSubmit={handleSumit} className="bg-slate-700 p-10 mb-4 rounded-md">
+        <h1 className="text-2x1 font-bold text-white mb-3">Escribe tu tarea</h1>
+        <h2 className="text-slate-300 mb-3">Nombre de Tarea</h2>
+        <input
+          ref={inputRef}
+          type="text"
+          placeholder="Escribe tu tarea"
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+          value={title}
+          autoFocus
+          className="bg-slate-300 p-3 w-full mb-2 placeholder-gray-400"
+        />
+        <p className="text-slate-300 mb-3">Descripcion</p>
+        <textarea 
+          type="text"
+          placeholder="Descripcion de tarea"
+          onChange={(e) => {
+            setDescription(e.target.value);
+          }}
+          value={description}className="bg-slate-300 p-3 w-full mb-2 placeholder-gray-400"
+        />
+        <br />
+        <button className="bg-indigo-500 px-3 py 1 rounded-md text-white 
+        hover:bg-indigo-900">Guardar</button>
+      </form>
+    </div>
   );
 }
-
 
 export default TaskForms;
