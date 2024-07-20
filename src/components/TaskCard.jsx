@@ -14,7 +14,6 @@ function TaskCard({task}) {
   );
 }
 
-export default TaskCard;
 
 TaskCard.propTypes = {
   task: PropTypes.shape({
@@ -23,3 +22,5 @@ TaskCard.propTypes = {
       description: PropTypes.string
     })
 }
+
+export default TaskCard;
